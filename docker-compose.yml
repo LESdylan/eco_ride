@@ -1,0 +1,29 @@
+# ============================================================================ #
+#                                                                              #
+#                                 FILE HEADER                                  #
+# ---------------------------------------------------------------------------- #
+#  File:       docker-compose.yml                                              #
+#  Author:     dlesieur                                                        #
+#  Email:      dlesieur@student.42.fr                                          #
+#  Created:    2025/11/04 00:11:33                                             #
+#  Updated:    2025/11/04 00:11:33                                             #
+#                                                                              #
+# ============================================================================ #
+
+version: "3.8"
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: codrive
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/create_schema.sql
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
