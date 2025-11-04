@@ -18,7 +18,7 @@ No manual installation needed. Dependencies are handled by Docker.
 ## 2. Start MySQL with Docker
 
 ```bash
-make up
+make up,m
 ```
 
 ## 3. Seed the database (using Docker)
