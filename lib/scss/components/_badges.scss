@@ -1,0 +1,38 @@
+@use 'sass:map';
+@use '../design-tokens/colors' as *;
+@use '../design-tokens/spacing' as *;
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  border-radius: 9999px;
+  text-align: center;
+}
+
+.badge-primary {
+  background-color: rgba($primary, 0.1);
+  color: $primary;
+}
+
+.badge-success {
+  background-color: rgba($success, 0.1);
+  color: $success;
+}
+
+.badge-warning {
+  background-color: rgba($warning, 0.1);
+  color: $warning;
+}
+
+.badge-danger {
+  background-color: rgba($danger, 0.1);
+  color: $danger;
+}
+
+.badge-info {
+  background-color: rgba($info, 0.1);
+  color: $info;
+}

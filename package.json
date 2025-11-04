@@ -4,5 +4,26 @@
   "scripts": {
     "seed": "python3 database/seed.py"
   },
-  "note": "This project uses Python for database seeding. See requirements.txt for Python dependencies."
+  "note": "This project uses Python for database seeding. See requirements.txt for Python dependencies.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib",
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LESdylan/eco_ride.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LESdylan/eco_ride/issues"
+  },
+  "homepage": "https://github.com/LESdylan/eco_ride#readme",
+  "dependencies": {
+    "sass": "^1.93.3"
+  }
 }

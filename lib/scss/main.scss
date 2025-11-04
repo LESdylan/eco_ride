@@ -1,0 +1,30 @@
+// main.scss
+
+// 1. Abstracts (must come first)
+@use 'abstracts/variables';
+@use 'abstracts/functions';
+@use 'abstracts/mixins';
+
+// 2. Base
+@use 'base/reset';
+@use 'base/base';
+
+// 3. Layout
+@use 'layout/grid';
+
+// 4. Components
+@use 'components/buttons';
+@use 'components/cards';
+@use 'components/badges';
+@use 'components/hero';
+@use 'components/modal';
+@use 'components/tooltips';
+@use 'components/gradients';
+@use 'components/glassmorphism';
+@use 'components/alerts';
+@use 'components/progress';
+
+// 5. Utilities
+@use 'utilities/utilities';
+@use 'utilities/animations';
+@use 'utilities/effects';

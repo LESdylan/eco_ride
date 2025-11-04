@@ -1,0 +1,32 @@
+@use 'sass:map';
+@use '../abstracts/mixins' as *;
+@use '../design-tokens/spacing' as *;
+@use '../design-tokens/colors' as *;
+
+.card {
+  background-color: $white;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  @include card-shadow(1);
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    @include card-shadow(2);
+  }
+}
+
+.card-header {
+  padding: map.get($scale, 4);
+  border-bottom: 1px solid $border-color;
+  font-weight: 600;
+}
+
+.card-body {
+  padding: map.get($scale, 4);
+}
+
+.card-footer {
+  padding: map.get($scale, 4);
+  border-top: 1px solid $border-color;
+  background-color: $gray-100;
+}

@@ -1,0 +1,59 @@
+@use 'sass:color';
+@use 'sass:map';
+@use 'variables' as *;
+
+// Responsive breakpoints
+@mixin respond-to($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (min-width: map.get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+}
+
+// Flexbox utilities
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// Button mixin
+@mixin button-variant($bg, $text-color: #fff, $hover-bg: null) {
+  @if $hover-bg == null {
+    $hover-bg: color.scale($bg, $lightness: -20%);
+  }
+  background-color: $bg;
+  color: $text-color;
+  border: 1px solid $bg;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: $hover-bg;
+    border-color: $hover-bg;
+  }
+}
+
+// Card shadow
+@mixin card-shadow($level: 1) {
+  @if $level == 1 {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  } @else if $level == 2 {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  } @else if $level == 3 {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+}
+
+// Truncate text
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

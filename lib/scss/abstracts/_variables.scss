@@ -1,0 +1,43 @@
+// Import design tokens
+@use '../design-tokens/colors' as colors;
+@use '../design-tokens/spacing' as spacing;
+@use '../design-tokens/typography' as typo;
+@use 'sass:map';
+
+// Export tokens for use throughout the project
+$primary: colors.$primary;
+$secondary: colors.$secondary;
+$success: colors.$success;
+$warning: colors.$warning;
+$danger: colors.$danger;
+$info: colors.$info;
+
+// Spacing scale
+$spacing: spacing.$scale;
+
+// Typography
+$font-family-base: typo.$font-family-base;
+$font-family-heading: typo.$font-family-heading;
+$font-sizes: typo.$font-sizes;
+$line-heights: typo.$line-heights;
+
+// Breakpoints
+$breakpoints: (
+  'xs': 0,
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px,
+  'xxl': 1400px
+);
+
+// Grid
+$grid-columns: 12;
+$grid-gutter: map.get($spacing, 4);
+$container-max-widths: (
+  'sm': 540px,
+  'md': 720px,
+  'lg': 960px,
+  'xl': 1140px,
+  'xxl': 1320px
+);

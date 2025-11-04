@@ -1,0 +1,28 @@
+@use 'sass:map';
+@use 'sass:math';
+@use 'variables' as *;
+
+// Get spacing value
+@function spacing($key) {
+  @return map.get($spacing, $key);
+}
+
+// Convert px to rem
+@function rem($px, $base: 16px) {
+  @return math.div($px, $base) * 1rem;
+}
+
+// Lighten color
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+// Darken color
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+// Get font size
+@function font-size($key) {
+  @return map.get($font-sizes, $key);
+}

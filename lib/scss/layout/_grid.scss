@@ -1,0 +1,50 @@
+@use 'sass:math';
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.container {
+  width: 100%;
+  padding-right: $grid-gutter;
+  padding-left: $grid-gutter;
+  margin-right: auto;
+  margin-left: auto;
+
+  @each $breakpoint, $max-width in $container-max-widths {
+    @include respond-to($breakpoint) {
+      max-width: $max-width;
+    }
+  }
+}
+
+.container-fluid {
+  width: 100%;
+  padding-right: $grid-gutter;
+  padding-left: $grid-gutter;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -#{math.div($grid-gutter, 2)};
+  margin-left: -#{math.div($grid-gutter, 2)};
+}
+
+@for $i from 1 through $grid-columns {
+  .col-#{$i} {
+    flex: 0 0 math.percentage(math.div($i, $grid-columns));
+    max-width: math.percentage(math.div($i, $grid-columns));
+    padding-right: math.div($grid-gutter, 2);
+    padding-left: math.div($grid-gutter, 2);
+  }
+}
+
+@each $breakpoint, $value in $breakpoints {
+  @include respond-to($breakpoint) {
+    @for $i from 1 through $grid-columns {
+      .col-#{$breakpoint}-#{$i} {
+        flex: 0 0 math.percentage(math.div($i, $grid-columns));
+        max-width: math.percentage(math.div($i, $grid-columns));
+      }
+    }
+  }
+}

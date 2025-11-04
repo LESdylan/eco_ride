@@ -1,0 +1,1 @@
+Handles big picture page structure - grid, navbars, footers, wrappers
