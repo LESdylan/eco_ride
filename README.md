@@ -1,5 +1,16 @@
 # Eco Ride Setup
 
+## Before starting
+we need to create the .env file with those variables for compatibility
+
+# This file is for credentials it's a hidden file that should never be shared in github
+MYSQL_ROOT_PASSWORD=
+MYSQL_DATABASE=
+MYSQL_USER=
+MYSQL_PASSWORD=
+MYSQL_HOST=
+MYSQL_PORT=
+
 ## 1. Install dependencies
 
 No manual installation needed. Dependencies are handled by Docker.
