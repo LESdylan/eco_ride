@@ -1,0 +1,8 @@
+{
+  "name": "eco_ride",
+  "description": "Eco Ride carpooling project",
+  "scripts": {
+    "seed": "python3 database/seed.py"
+  },
+  "note": "This project uses Python for database seeding. See requirements.txt for Python dependencies."
+}

@@ -10,8 +10,6 @@
 #                                                                              #
 # ============================================================================ #
 
-version: "3.8"
-
 services:
   db:
     image: mysql:8.0
@@ -22,8 +20,37 @@ services:
     ports:
       - "3307:3306"
     volumes:
-      - ./database/schema.sql:/docker-entrypoint-initdb.d/create_schema.sql
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/00_create_schema.sql
       - db_data:/var/lib/mysql
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "mysqladmin",
+          "ping",
+          "-h",
+          "127.0.0.1",
+          "-uroot",
+          "-p$$MYSQL_ROOT_PASSWORD",
+        ]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+      start_period: 10s
+
+  seeder:
+    image: python:3.12
+    working_dir: /app
+    env_file:
+      - .env
+    volumes:
+      - ./:/app
+    depends_on:
+      db:
+        condition: service_healthy
+    entrypoint: >
+      bash -lc "pip install -r requirements.txt &&
+                python database/seed.py"
 
 volumes:
   db_data:
