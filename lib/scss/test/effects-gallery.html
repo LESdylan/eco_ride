@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Effects Gallery - EcoRide CSS</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="interactions/component-grid.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            margin: 0;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            min-height: 100vh;
+        }
+        
+        .page-header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .gallery-container {
+            max-width: 1600px;
+            margin: 0 auto 4rem;
+            background: white;
+            border-radius: 2rem;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+        }
+    </style>
+</head>
+<body>
+    
+    <header class="page-header">
+        <div class="container text-center text-white">
+            <h1 style="font-size: 3.5rem; font-weight: 900; margin-bottom: 1rem;">
+                ✨ Effects & Animations Gallery
+            </h1>
+            <p style="font-size: 1.25rem; opacity: 0.95; max-width: 600px; margin: 0 auto;">
+                Discover stunning visual effects and animations
+            </p>
+        </div>
+    </header>
+
+    <div class="gallery-container">
+        <div id="effects-grid"></div>
+    </div>
+
+    <script src="interactions/component-grid.js"></script>
+    <script>
+        const grid = new ComponentGrid('effects-grid', {
+            minCardWidth: 300,
+            maxCardWidth: 380,
+            gap: 24,
+            padding: 48,
+            aspectRatio: 1.2
+        });
+
+        const effectComponents = [
+            {
+                title: 'Breathe Animation',
+                description: 'Gentle breathing pulse effect',
+                classes: '.breathe',
+                preview: `
+                    <div class="card gradient-purple text-white breathe shadow-lg" style="width: 200px; height: 120px; display: flex; align-items: center; justify-content: center; border: none;">
+                        <div style="font-size: 3rem;">💗</div>
+                    </div>
+                `,
+                interactive: true
+            },
+            {
+                title: 'Pulse Animation',
+                description: 'Continuous opacity pulse',
+                classes: '.animate-pulse',
+                preview: `
+                    <div class="card gradient-blue text-white animate-pulse shadow-lg" style="width: 200px; height: 120px; display: flex; align-items: center; justify-content: center; border: none;">
+                        <div style="font-size: 3rem;">💫</div>
+                    </div>
+                `,
+                interactive: true
+            },
+            {
+                title: 'Tilt Animation',
+                description: 'Playful tilting motion',
+                classes: '.tilt',
+                preview: `
+                    <div class="card gradient-fire text-white tilt shadow-lg" style="width: 200px; height: 120px; display: flex; align-items: center; justify-content: center; border: none;">
+                        <div style="font-size: 3rem;">🎯</div>
+                    </div>
+                `,
+                interactive: true
+            },
+            {
+                title: 'Bounce Animation',
+                description: 'Bouncing up and down',
+                classes: '.animate-bounce',
+                preview: `
+                    <div class="card gradient-orange text-white shadow-lg" style="width: 200px; height: 120px; display: flex; align-items: center; justify-content: center; border: none;">
+                        <div class="animate-bounce" style="font-size: 3rem;">⚽</div>
+                    </div>
+                `,
+                interactive: true
+            },
+            {
+                title: 'Shimmer Effect',
+                description: 'Gliding shimmer animation',
+                classes: '.shimmer',
+                preview: `
+                    <div class="shimmer" style="width: 240px; height: 100px; background: linear-gradient(90deg, #f0f0f0 0%, #e0e0e0 50%, #f0f0f0 100%); border-radius: 0.5rem;"></div>
+                `,
+                interactive: false
+            },
+            {
+                title: 'Morph Shape',
+                description: 'Organic shape morphing',
+                classes: '.morph',
+                preview: `
+                    <div class="morph" style="width: 150px; height: 150px; background: linear-gradient(135deg, #667eea, #764ba2);"></div>
+                `,
+                interactive: true
+            },
+            {
+                title: 'Hover Glow',
+                description: 'Glowing effect on hover',
+                classes: '.hover-glow',
+                preview: `
+                    <div class="card gradient-purple text-white hover-glow shadow" style="width: 200px; height: 120px; display: flex; align-items: center; justify-content: center; border: none;">
+                        <h5 style="color: white; font-weight: 700;">Hover Me</h5>
+                    </div>
+                `,
+                interactive: true
+            },
+            {
+                title: 'Magnetic Effect',
+                description: 'Magnetic pull on hover',
+                classes: '.magnetic',
+                preview: `
+                    <div class="card gradient-blue text-white magnetic shadow-lg" style="width: 200px; height: 120px; display: flex; align-items: center; justify-content: center; border: none;">
+                        <div style="font-size: 3rem;">🧲</div>
+                    </div>
+                `,
+                interactive: true
+            },
+            {
+                title: 'Fade In Up',
+                description: 'Entrance animation from below',
+                classes: '.animate-fade-in-up',
+                preview: `
+                    <div class="card shadow animate-fade-in-up" style="width: 200px; height: 120px; display: flex; align-items: center; justify-content: center;">
+                        <div style="font-size: 3rem;">↗️</div>
+                    </div>
+                `,
+                interactive: false
+            },
+            {
+                title: 'Scale In',
+                description: 'Scale from center animation',
+                classes: '.animate-scale-in',
+                preview: `
+                    <div class="card shadow animate-scale-in" style="width: 200px; height: 120px; display: flex; align-items: center; justify-content: center;">
+                        <div style="font-size: 3rem;">🔍</div>
+                    </div>
+                `,
+                interactive: false
+            },
+            {
+                title: 'Neon Glow Text',
+                description: 'Pulsating neon text effect',
+                classes: '.neon-text',
+                preview: `
+                    <div class="card gradient-twilight" style="width: 220px; height: 120px; display: flex; align-items: center; justify-content: center; border: none;">
+                        <h3 class="neon-text" style="color: #0066ff; font-weight: 900;">NEON</h3>
+                    </div>
+                `,
+                interactive: true
+            },
+            {
+                title: 'Gradient Animated',
+                description: 'Shifting gradient background',
+                classes: '.gradient-animated',
+                preview: `
+                    <div class="gradient-animated shadow-lg" style="width: 240px; height: 120px; display: flex; align-items: center; justify-content: center; border-radius: 0.75rem;">
+                        <h5 class="text-white font-bold">Animated</h5>
+                    </div>
+                `,
+                interactive: true
+            }
+        ];
+
+        grid.addComponents(effectComponents);
+    </script>
+</body>
+</html>

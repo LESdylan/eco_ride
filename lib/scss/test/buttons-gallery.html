@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buttons Gallery - EcoRide CSS</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="interactions/component-grid.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .page-header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .gallery-container {
+            max-width: 1600px;
+            margin: 0 auto 4rem;
+            background: white;
+            border-radius: 2rem;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Header -->
+    <header class="page-header">
+        <div class="container text-center text-white">
+            <h1 style="font-size: 3.5rem; font-weight: 900; margin-bottom: 1rem;">
+                🎨 Buttons Gallery
+            </h1>
+            <p style="font-size: 1.25rem; opacity: 0.95; max-width: 600px; margin: 0 auto;">
+                Explore all button variations and effects from the EcoRide CSS framework
+            </p>
+        </div>
+    </header>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-container">
+        <div id="buttons-grid"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="interactions/component-grid.js"></script>
+    <script>
+        // Initialize grid
+        const grid = new ComponentGrid('buttons-grid', {
+            minCardWidth: 300,
+            maxCardWidth: 380,
+            gap: 24,
+            padding: 48,
+            aspectRatio: 1.3
+        });
+
+        // Button components data
+        const buttonComponents = [
+            {
+                title: 'Primary Button',
+                description: 'Standard primary action button with hover lift',
+                classes: '.btn .btn-primary .hover-lift',
+                preview: '<button class="btn btn-primary hover-lift shadow-lg">Primary</button>',
+                interactive: true
+            },
+            {
+                title: 'Success Button',
+                description: 'Success state button for confirmations',
+                classes: '.btn .btn-success .hover-lift',
+                preview: '<button class="btn btn-success hover-lift shadow-lg">Success</button>',
+                interactive: true
+            },
+            {
+                title: 'Danger Button',
+                description: 'Warning/destructive action button',
+                classes: '.btn .btn-danger .hover-lift',
+                preview: '<button class="btn btn-danger hover-lift shadow-lg">Danger</button>',
+                interactive: true
+            },
+            {
+                title: 'Warning Button',
+                description: 'Caution or warning state button',
+                classes: '.btn .btn-warning .hover-lift',
+                preview: '<button class="btn btn-warning hover-lift shadow-lg">Warning</button>',
+                interactive: true
+            },
+            {
+                title: 'Secondary Button',
+                description: 'Secondary action button',
+                classes: '.btn .btn-secondary .hover-scale',
+                preview: '<button class="btn btn-secondary hover-scale shadow">Secondary</button>',
+                interactive: true
+            },
+            {
+                title: 'Gradient Purple',
+                description: 'Beautiful purple gradient button',
+                classes: '.btn .gradient-purple .text-white',
+                preview: '<button class="btn gradient-purple text-white hover-lift shadow-lg">Gradient</button>',
+                interactive: true
+            },
+            {
+                title: 'Gradient Pink',
+                description: 'Eye-catching pink gradient',
+                classes: '.btn .gradient-pink .text-white',
+                preview: '<button class="btn gradient-pink text-white hover-scale shadow-lg">Pink Fire</button>',
+                interactive: true
+            },
+            {
+                title: 'Gradient Blue',
+                description: 'Cool blue gradient effect',
+                classes: '.btn .gradient-blue .text-white',
+                preview: '<button class="btn gradient-blue text-white hover-lift shadow-lg">Ocean</button>',
+                interactive: true
+            },
+            {
+                title: 'Gradient Fire',
+                description: 'Hot fire gradient',
+                classes: '.btn .gradient-fire .text-white',
+                preview: '<button class="btn gradient-fire text-white hover-scale shadow-lg">Fire</button>',
+                interactive: true
+            },
+            {
+                title: 'Glass Light',
+                description: 'Glassmorphism frosted effect',
+                classes: '.btn .glass .text-white',
+                preview: '<div class="gradient-ocean p-4 rounded-lg"><button class="btn glass text-white hover-lift shadow-lg">Glass</button></div>',
+                interactive: true
+            },
+            {
+                title: 'Glass Dark',
+                description: 'Dark frosted glass button',
+                classes: '.btn .glass-dark .text-white',
+                preview: '<div class="gradient-twilight p-4 rounded-lg"><button class="btn glass-dark text-white hover-scale shadow-lg">Dark</button></div>',
+                interactive: true
+            },
+            {
+                title: 'Glass Card',
+                description: 'Premium glass card effect',
+                classes: '.btn .glass-card .text-white',
+                preview: '<div class="gradient-candy p-4 rounded-lg"><button class="btn glass-card text-white magnetic shadow-lg">Premium</button></div>',
+                interactive: true
+            },
+            {
+                title: 'Breathing Effect',
+                description: 'Subtle breathing animation',
+                classes: '.btn .breathe',
+                preview: '<button class="btn btn-primary breathe shadow-lg">Breathe</button>',
+                interactive: true
+            },
+            {
+                title: 'Pulse Animation',
+                description: 'Continuous pulse effect',
+                classes: '.btn .animate-pulse',
+                preview: '<button class="btn btn-success animate-pulse shadow-lg">Pulse</button>',
+                interactive: true
+            },
+            {
+                title: 'Tilt Animation',
+                description: 'Playful tilt effect',
+                classes: '.btn .tilt',
+                preview: '<button class="btn btn-warning tilt shadow-lg">Tilt</button>',
+                interactive: true
+            },
+            {
+                title: 'Glow on Hover',
+                description: 'Glowing hover effect',
+                classes: '.btn .hover-glow',
+                preview: '<button class="btn btn-primary hover-glow shadow">Glow</button>',
+                interactive: true
+            },
+            {
+                title: 'Small Button',
+                description: 'Compact button size',
+                classes: '.btn .btn-sm .btn-primary',
+                preview: '<button class="btn btn-sm btn-primary hover-lift">Small</button>',
+                interactive: true
+            },
+            {
+                title: 'Large Button',
+                description: 'Prominent large button',
+                classes: '.btn .btn-lg .btn-success',
+                preview: '<button class="btn btn-lg btn-success hover-lift shadow-lg">Large</button>',
+                interactive: true
+            },
+            {
+                title: 'Magnetic Effect',
+                description: 'Magnetic pull interaction',
+                classes: '.btn .magnetic',
+                preview: '<button class="btn btn-primary magnetic shadow-lg">Magnetic</button>',
+                interactive: true
+            },
+            {
+                title: 'Shimmer Effect',
+                description: 'Loading shimmer animation',
+                classes: '.btn .shimmer',
+                preview: '<button class="btn gradient-purple text-white shimmer shadow-lg" style="overflow: hidden;">Shimmer</button>',
+                interactive: true
+            },
+            {
+                title: 'Gradient Orange',
+                description: 'Warm orange gradient',
+                classes: '.btn .gradient-orange .text-white',
+                preview: '<button class="btn gradient-orange text-white hover-lift shadow-lg">Sunset</button>',
+                interactive: true
+            },
+            {
+                title: 'Gradient Forest',
+                description: 'Fresh forest green gradient',
+                classes: '.btn .gradient-forest .text-white',
+                preview: '<button class="btn gradient-forest text-white hover-scale shadow-lg">Forest</button>',
+                interactive: true
+            },
+            {
+                title: 'Gradient Candy',
+                description: 'Sweet candy gradient',
+                classes: '.btn .gradient-candy .text-white',
+                preview: '<button class="btn gradient-candy text-white hover-lift shadow-lg">Candy</button>',
+                interactive: true
+            },
+            {
+                title: 'Disabled State',
+                description: 'Disabled button state',
+                classes: '.btn .btn-primary [disabled]',
+                preview: '<button class="btn btn-primary shadow" disabled>Disabled</button>',
+                interactive: false
+            }
+        ];
+
+        // Add all buttons to grid
+        grid.addComponents(buttonComponents);
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
