@@ -26,3 +26,49 @@
 @function font-size($key) {
   @return map.get($font-sizes, $key);
 }
+
+// Get z-index
+@function z($key) {
+  @return map.get($z-index, $key);
+}
+
+// Get shadow
+@function shadow($key) {
+  @return map.get($shadows, $key);
+}
+
+// Get border radius
+@function radius($key) {
+  @return map.get($border-radius, $key);
+}
+
+// Responsive font size
+@function fluid-size($min, $max, $min-vw: 320px, $max-vw: 1200px) {
+  $slope: math.div($max - $min, $max-vw - $min-vw);
+  $intercept: $min - $slope * $min-vw;
+  @return clamp(#{$min}, #{$intercept} + #{$slope * 100}vw, #{$max});
+}
+
+// Strip unit
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return math.div($number, $number * 0 + 1);
+  }
+  @return $number;
+}
+
+// Power function
+@function pow($number, $exponent) {
+  $value: 1;
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $value: $value * $number;
+    }
+  }
+  @return $value;
+}
+
+// Generate unique ID
+@function unique-id() {
+  @return unquote("id-#{random(10000)}");
+}

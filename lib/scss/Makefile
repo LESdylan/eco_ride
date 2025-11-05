@@ -12,7 +12,7 @@ OUTPUT_CSS = $(CSS_DIR)/style.css
 OUTPUT_MIN = $(CSS_DIR)/style.min.css
 
 # Allow overriding the Sass binary (e.g., make SASS="npx sass")
-SASS ?= sass
+SASS ?= npx sass
 
 # Logging
 define info

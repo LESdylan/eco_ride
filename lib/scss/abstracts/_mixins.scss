@@ -57,3 +57,156 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+// Glassmorphism mixin
+@mixin glass($blur: 10px, $opacity: 0.1, $border-opacity: 0.2) {
+  background: rgba(255, 255, 255, $opacity);
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid rgba(255, 255, 255, $border-opacity);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+}
+
+// Neumorphism mixin
+@mixin neumorphism($bg-color: #e0e5ec, $distance: 10px, $intensity: 0.15) {
+  background: $bg-color;
+  box-shadow: 
+    #{$distance} #{$distance} #{$distance * 2} rgba(0, 0, 0, $intensity),
+    #{-$distance} #{-$distance} #{$distance * 2} rgba(255, 255, 255, 0.7);
+  border-radius: map.get($border-radius, 'lg');
+}
+
+// Gradient text
+@mixin gradient-text($gradient) {
+  background: $gradient;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+// Smooth scroll
+@mixin smooth-scroll {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+// Hide scrollbar
+@mixin hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// Custom scrollbar
+@mixin custom-scrollbar($width: 8px, $track: transparent, $thumb: rgba(0,0,0,0.3)) {
+  &::-webkit-scrollbar {
+    width: $width;
+    height: $width;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: $track;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: $thumb;
+    border-radius: map.get($border-radius, 'full');
+    
+    &:hover {
+      background: rgba(0,0,0,0.5);
+    }
+  }
+}
+
+// Hover lift effect
+@mixin hover-lift($distance: 8px, $shadow: map.get($shadows, 'lg')) {
+  transition: transform $transition-base, box-shadow $transition-base;
+  
+  &:hover {
+    transform: translateY(-#{$distance});
+    box-shadow: $shadow;
+  }
+}
+
+// Pulse animation
+@mixin pulse-animation($color: $primary, $duration: 2s) {
+  animation: pulse-#{unique-id()} $duration infinite;
+  
+  @keyframes pulse-#{unique-id()} {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba($color, 0.7);
+    }
+    50% {
+      box-shadow: 0 0 0 10px rgba($color, 0);
+    }
+  }
+}
+
+// Text gradient animation
+@mixin animated-gradient-text($gradient, $duration: 3s) {
+  background: $gradient;
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift $duration ease infinite;
+}
+
+// Floating animation
+@mixin float($distance: 20px, $duration: 3s) {
+  animation: float-#{unique-id()} $duration ease-in-out infinite;
+  
+  @keyframes float-#{unique-id()} {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-#{$distance});
+    }
+  }
+}
+
+// Clip path shapes
+@mixin clip-polygon($points) {
+  clip-path: polygon($points);
+  -webkit-clip-path: polygon($points);
+}
+
+// Grid auto-fit
+@mixin auto-grid($min-col-width: 250px, $gap: map.get($spacing, 4)) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min-col-width, 1fr));
+  gap: $gap;
+}
+
+// Aspect ratio
+@mixin aspect-ratio($width: 16, $height: 9) {
+  position: relative;
+  
+  &::before {
+    content: '';
+    display: block;
+    padding-top: percentage($height / $width);
+  }
+  
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// Focus visible (accessibility)
+@mixin focus-visible($color: $primary) {
+  &:focus-visible {
+    outline: 2px solid $color;
+    outline-offset: 2px;
+  }
+}

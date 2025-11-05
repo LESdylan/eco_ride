@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoRide CSS - Professional UI Framework Showcase</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; }
+        .code { font-family: 'JetBrains Mono', monospace; }
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0,0,0,0.1), transparent);
+            margin: 5rem 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Navigation -->
+    <nav class="glass fixed" style="top: 0; left: 0; right: 0; z-index: 1000; padding: 1rem 0;">
+        <div class="container">
+            <div class="d-flex justify-between align-center">
+                <h3 class="mb-0 gradient-text-rainbow font-bold">EcoRide CSS</h3>
+                <div class="d-flex gap-6">
+                    <a href="#hero" class="text-white hover-scale">Home</a>
+                    <a href="#gradients" class="text-white hover-scale">Gradients</a>
+                    <a href="#glass" class="text-white hover-scale">Glass</a>
+                    <a href="#motion" class="text-white hover-scale">Motion</a>
+                    <a href="#components" class="text-white hover-scale">Components</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Animated Background -->
+    <section id="hero" class="gradient-animated relative overflow-hidden" style="padding: 12rem 0 8rem; min-height: 100vh; display: flex; align-items: center;">
+        <div class="absolute" style="top: 0; left: 0; right: 0; bottom: 0; opacity: 0.1;">
+            <div class="morph" style="position: absolute; width: 400px; height: 400px; background: white; top: 10%; left: 10%;"></div>
+            <div class="morph animation-delay-500" style="position: absolute; width: 300px; height: 300px; background: white; bottom: 20%; right: 15%;"></div>
+        </div>
+        
+        <div class="container relative">
+            <div class="text-center mx-auto animate-fade-in-up" style="max-width: 900px;">
+                <div class="mb-6">
+                    <span class="badge bg-white" style="color: #667eea; font-size: 0.875rem; padding: 0.5rem 1.5rem;">
+                        ✨ Production-Ready UI Framework
+                    </span>
+                </div>
+                <h1 class="text-white mb-6" style="font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 900; line-height: 1.1;">
+                    Build Stunning
+                    <br/>
+                    <span class="typewriter" style="display: inline-block;">Interfaces</span>
+                </h1>
+                <p class="text-white mb-8" style="font-size: clamp(1.125rem, 2vw, 1.5rem); opacity: 0.95; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    A modular, scalable SCSS framework packed with glassmorphism, neumorphism, advanced animations, and 100+ utility classes.
+                </p>
+                <div class="d-flex justify-center gap-4 flex-wrap animate-fade-in-up animation-delay-200">
+                    <button class="btn btn-lg shadow-lg hover-lift breathe" style="background: white; color: #667eea; font-weight: 700; padding: 1rem 2.5rem;">
+                        <span style="font-size: 1.5rem; margin-right: 0.5rem;">🚀</span> Get Started
+                    </button>
+                    <button class="btn btn-lg glass text-white border shadow-lg hover-scale" style="padding: 1rem 2.5rem;">
+                        <span style="font-size: 1.5rem; margin-right: 0.5rem;">📖</span> Documentation
+                    </button>
+                </div>
+                
+                <!-- Stats -->
+                <div class="row gap-4 mt-16">
+                    <div class="col-12 col-md-3">
+                        <div class="glass-card text-white text-center hover-lift">
+                            <div style="font-size: 2.5rem; font-weight: 900;">100+</div>
+                            <div style="opacity: 0.9;">Utility Classes</div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <div class="glass-card text-white text-center hover-lift animation-delay-100">
+                            <div style="font-size: 2.5rem; font-weight: 900;">50+</div>
+                            <div style="opacity: 0.9;">Components</div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <div class="glass-card text-white text-center hover-lift animation-delay-200">
+                            <div style="font-size: 2.5rem; font-weight: 900;">30+</div>
+                            <div style="opacity: 0.9;">Animations</div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <div class="glass-card text-white text-center hover-lift animation-delay-300">
+                            <div style="font-size: 2.5rem; font-weight: 900;">∞</div>
+                            <div style="opacity: 0.9;">Possibilities</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Gradient Showcase -->
+    <section id="gradients" class="container py-20">
+        <div class="text-center mb-16 reveal-up">
+            <span class="badge gradient-purple text-white mb-4">Gradients</span>
+            <h2 style="font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; margin-bottom: 1rem;">
+                Stunning Color Transitions
+            </h2>
+            <p class="text-muted" style="font-size: 1.25rem; max-width: 600px; margin: 0 auto;">
+                14 hand-crafted gradient combinations with animated options
+            </p>
+        </div>
+        
+        <div class="row gap-4 stagger-children">
+            <div class="col-6 col-md-4 col-lg-3 animate-scale-in">
+                <div class="card gradient-purple gradient-overlay shadow-lg hover-lift" style="height: 200px; border: none; cursor: pointer;">
+                    <div class="d-flex flex-column align-center justify-center" style="height: 100%;">
+                        <h4 class="text-white font-bold mb-2">Purple Haze</h4>
+                        <code class="code text-white" style="font-size: 0.75rem; opacity: 0.8;">.gradient-purple</code>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 animate-scale-in">
+                <div class="card gradient-ocean gradient-overlay shadow-lg hover-lift" style="height: 200px; border: none; cursor: pointer;">
+                    <div class="d-flex flex-column align-center justify-center" style="height: 100%;">
+                        <h4 class="text-white font-bold mb-2">Ocean Depths</h4>
+                        <code class="code text-white" style="font-size: 0.75rem; opacity: 0.8;">.gradient-ocean</code>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 animate-scale-in">
+                <div class="card gradient-fire gradient-overlay shadow-lg hover-lift" style="height: 200px; border: none; cursor: pointer;">
+                    <div class="d-flex flex-column align-center justify-center" style="height: 100%;">
+                        <h4 class="text-white font-bold mb-2">Fire Blaze</h4>
+                        <code class="code text-white" style="font-size: 0.75rem; opacity: 0.8;">.gradient-fire</code>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 animate-scale-in">
+                <div class="card gradient-candy gradient-overlay shadow-lg hover-lift" style="height: 200px; border: none; cursor: pointer;">
+                    <div class="d-flex flex-column align-center justify-center" style="height: 100%;">
+                        <h4 class="text-white font-bold mb-2">Sweet Candy</h4>
+                        <code class="code text-white" style="font-size: 0.75rem; opacity: 0.8;">.gradient-candy</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Animated Gradient Demo -->
+        <div class="mt-16 text-center">
+            <div class="gradient-animated glass-card mx-auto" style="max-width: 600px; padding: 3rem;">
+                <h3 class="text-white font-bold mb-3">Animated Gradients</h3>
+                <p class="text-white mb-4" style="opacity: 0.9;">Watch colors flow seamlessly</p>
+                <code class="code text-white" style="opacity: 0.8;">.gradient-animated</code>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Glassmorphism & Neumorphism -->
+    <section id="glass" class="gradient-twilight py-20">
+        <div class="container">
+            <div class="text-center text-white mb-16 reveal-up">
+                <span class="badge glass text-white mb-4">Modern Effects</span>
+                <h2 style="font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; margin-bottom: 1rem;">
+                    Glassmorphism & Neumorphism
+                </h2>
+                <p style="font-size: 1.25rem; max-width: 700px; margin: 0 auto; opacity: 0.9;">
+                    Frosted glass effects and soft UI elements for modern interfaces
+                </p>
+            </div>
+
+            <div class="row gap-8">
+                <div class="col-12 col-lg-4 reveal-left">
+                    <div class="glass-card text-white hover-lift">
+                        <div class="text-center">
+                            <div class="shimmer" style="font-size: 4rem; margin-bottom: 1.5rem;">💎</div>
+                            <h3 class="font-bold mb-3" style="font-size: 1.75rem;">Glass Light</h3>
+                            <p style="opacity: 0.9; margin-bottom: 1.5rem; line-height: 1.7;">
+                                Subtle transparency with strong backdrop blur for elegant floating elements.
+                            </p>
+                            <code class="code" style="font-size: 0.875rem; opacity: 0.8; padding: 0.5rem 1rem; background: rgba(0,0,0,0.2); border-radius: 0.5rem; display: inline-block;">
+                                .glass-card
+                            </code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-4 reveal-up animation-delay-200">
+                    <div class="glass-dark text-white hover-lift" style="padding: 2rem; border-radius: 1rem;">
+                        <div class="text-center">
+                            <div class="magnetic" style="font-size: 4rem; margin-bottom: 1.5rem;">🌙</div>
+                            <h3 class="font-bold mb-3" style="font-size: 1.75rem;">Glass Dark</h3>
+                            <p style="opacity: 0.9; margin-bottom: 1.5rem; line-height: 1.7;">
+                                Dark frosted glass perfect for overlays and modal backdrops.
+                            </p>
+                            <code class="code" style="font-size: 0.875rem; opacity: 0.8; padding: 0.5rem 1rem; background: rgba(0,0,0,0.3); border-radius: 0.5rem; display: inline-block;">
+                                .glass-dark
+                            </code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-4 reveal-right animation-delay-300">
+                    <div class="glass text-white hover-lift" style="padding: 2rem; border-radius: 1rem;">
+                        <div class="text-center">
+                            <div class="breathe" style="font-size: 4rem; margin-bottom: 1.5rem;">✨</div>
+                            <h3 class="font-bold mb-3" style="font-size: 1.75rem;">Glass Standard</h3>
+                            <p style="opacity: 0.9; margin-bottom: 1.5rem; line-height: 1.7;">
+                                Balanced glass effect with medium transparency and blur.
+                            </p>
+                            <code class="code" style="font-size: 0.875rem; opacity: 0.8; padding: 0.5rem 1rem; background: rgba(0,0,0,0.2); border-radius: 0.5rem; display: inline-block;">
+                                .glass
+                            </code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Motion & Animations -->
+    <section id="motion" class="container py-20">
+        <div class="text-center mb-16 reveal-up">
+            <span class="badge gradient-blue text-white mb-4">Motion Design</span>
+            <h2 style="font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; margin-bottom: 1rem;">
+                Advanced Animations
+            </h2>
+            <p class="text-muted" style="font-size: 1.25rem; max-width: 700px; margin: 0 auto;">
+                Bring your UI to life with smooth, performant animations
+            </p>
+        </div>
+
+        <!-- Hover Effects -->
+        <div class="card shadow-lg mb-12 overflow-hidden">
+            <div class="card-header gradient-primary text-white" style="padding: 2rem;">
+                <h3 class="mb-0 font-bold" style="font-size: 1.75rem;">Interactive Hover Effects</h3>
+            </div>
+            <div class="card-body p-8">
+                <div class="row gap-6">
+                    <div class="col-12 col-md-4">
+                        <div class="card shadow hover-lift gradient-purple gradient-overlay" style="height: 220px; border: none; cursor: pointer;">
+                            <div class="d-flex flex-column align-center justify-center" style="height: 100%;">
+                                <div class="text-white" style="font-size: 3rem; margin-bottom: 1rem;">🚀</div>
+                                <h4 class="text-white font-bold">Hover Lift</h4>
+                                <p class="text-white" style="opacity: 0.9; font-size: 0.875rem;">.hover-lift</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="card shadow hover-scale gradient-pink gradient-overlay" style="height: 220px; border: none; cursor: pointer;">
+                            <div class="d-flex flex-column align-center justify-center" style="height: 100%;">
+                                <div class="text-white" style="font-size: 3rem; margin-bottom: 1rem;">⚡</div>
+                                <h4 class="text-white font-bold">Hover Scale</h4>
+                                <p class="text-white" style="opacity: 0.9; font-size: 0.875rem;">.hover-scale</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="card shadow magnetic gradient-blue gradient-overlay" style="height: 220px; border: none; cursor: pointer;">
+                            <div class="d-flex flex-column align-center justify-center" style="height: 100%;">
+                                <div class="text-white" style="font-size: 3rem; margin-bottom: 1rem;">🧲</div>
+                                <h4 class="text-white font-bold">Magnetic</h4>
+                                <p class="text-white" style="opacity: 0.9; font-size: 0.875rem;">.magnetic</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Special Effects -->
+        <div class="row gap-6">
+            <div class="col-12 col-md-6">
+                <div class="card shadow-lg hover-lift" style="height: 300px;">
+                    <div class="card-body d-flex flex-column align-center justify-center text-center p-8">
+                        <div class="shimmer mb-4" style="width: 100%; height: 80px; background: linear-gradient(90deg, #f0f0f0 0%, #e0e0e0 50%, #f0f0f0 100%); border-radius: 0.5rem;"></div>
+                        <h4 class="font-bold mb-2">Shimmer Loading</h4>
+                        <p class="text-muted mb-3">Skeleton loading effect</p>
+                        <code class="code text-primary" style="font-size: 0.875rem;">.shimmer</code>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="card shadow-lg hover-lift" style="height: 300px;">
+                    <div class="card-body d-flex flex-column align-center justify-center text-center p-8">
+                        <div class="tilt mb-4" style="font-size: 5rem;">🎯</div>
+                        <h4 class="font-bold mb-2">Tilt Animation</h4>
+                        <p class="text-muted mb-3">Subtle rocking motion</p>
+                        <code class="code text-primary" style="font-size: 0.875rem;">.tilt</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3D Card Flip -->
+        <div class="mt-12 text-center">
+            <h3 class="font-bold mb-6" style="font-size: 2rem;">3D Card Flip</h3>
+            <div class="flip-card mx-auto" style="width: 300px; height: 400px;">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front gradient-purple d-flex align-center justify-center rounded-lg">
+                        <div class="text-white text-center">
+                            <div style="font-size: 4rem; margin-bottom: 1rem;">🎴</div>
+                            <h4 class="font-bold">Hover Me</h4>
+                            <p style="opacity: 0.9;">See the magic</p>
+                        </div>
+                    </div>
+                    <div class="flip-card-back gradient-ocean d-flex align-center justify-center rounded-lg">
+                        <div class="text-white text-center p-6">
+                            <div style="font-size: 4rem; margin-bottom: 1rem;">✨</div>
+                            <h4 class="font-bold mb-3">Flipped!</h4>
+                            <code class="code text-white" style="font-size: 0.75rem; opacity: 0.9;">.flip-card</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Components Showcase -->
+    <section id="components" class="bg-light py-20">
+        <div class="container">
+            <div class="text-center mb-16">
+                <span class="badge gradient-success text-white mb-4">Components</span>
+                <h2 style="font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; margin-bottom: 1rem;">
+                    Production-Ready Components
+                </h2>
+                <p class="text-muted" style="font-size: 1.25rem; max-width: 700px; margin: 0 auto;">
+                    Pre-built, customizable UI elements for rapid development
+                </p>
+            </div>
+
+            <!-- Buttons -->
+            <div class="card shadow-lg mb-12">
+                <div class="card-header" style="padding: 2rem; background: white;">
+                    <h3 class="mb-0 font-bold" style="font-size: 1.75rem;">Buttons & Actions</h3>
+                </div>
+                <div class="card-body p-8">
+                    <div class="mb-6">
+                        <h5 class="font-semibold mb-4 text-muted">Solid Buttons</h5>
+                        <div class="d-flex flex-wrap gap-3">
+                            <button class="btn btn-primary shadow hover-lift">Primary</button>
+                            <button class="btn btn-success shadow hover-lift">Success</button>
+                            <button class="btn btn-danger shadow hover-lift">Danger</button>
+                            <button class="btn btn-warning shadow hover-lift">Warning</button>
+                            <button class="btn gradient-purple text-white shadow hover-lift">Gradient</button>
+                        </div>
+                    </div>
+                    <div>
+                        <h5 class="font-semibold mb-4 text-muted">Glass Buttons</h5>
+                        <div class="gradient-ocean p-6 rounded-lg">
+                            <div class="d-flex flex-wrap gap-3">
+                                <button class="btn glass text-white border shadow hover-scale">Glass Light</button>
+                                <button class="btn glass-dark text-white shadow hover-scale">Glass Dark</button>
+                                <button class="btn glass-card text-white shadow magnetic">Glass Card</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alerts -->
+            <div class="row gap-6">
+                <div class="col-12 col-md-6">
+                    <div class="alert alert-success">
+                        <div class="alert-icon">✅</div>
+                        <div class="alert-content">
+                            <div class="alert-title">Success!</div>
+                            <div class="alert-message">Your changes have been saved successfully.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="alert alert-danger">
+                        <div class="alert-icon">❌</div>
+                        <div class="alert-content">
+                            <div class="alert-title">Error</div>
+                            <div class="alert-message">Something went wrong. Please try again.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Badges -->
+            <div class="mt-12 text-center">
+                <h4 class="font-bold mb-6" style="font-size: 1.5rem;">Badges & Tags</h4>
+                <div class="d-flex flex-wrap justify-center gap-3">
+                    <span class="badge badge-primary">Primary</span>
+                    <span class="badge badge-success">Success</span>
+                    <span class="badge badge-warning">Warning</span>
+                    <span class="badge badge-danger">Danger</span>
+                    <span class="badge badge-info">Info</span>
+                    <span class="badge gradient-purple text-white">Gradient</span>
+                    <span class="badge glass text-white">Glass</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="gradient-twilight text-white py-16">
+        <div class="container">
+            <div class="row mb-12">
+                <div class="col-12 col-md-6 mb-8">
+                    <h3 class="mb-4 font-bold neon-text" style="font-size: 2.5rem;">EcoRide CSS</h3>
+                    <p style="opacity: 0.9; line-height: 1.8; font-size: 1.125rem; max-width: 500px;">
+                        A modern, production-ready SCSS framework built for developers who care about performance, accessibility, and beautiful design.
+                    </p>
+                    <div class="d-flex gap-3 mt-6">
+                        <button class="glass-card text-white hover-scale breathe" style="padding: 1rem 1.5rem; font-size: 1.5rem; border: none; cursor: pointer;">⭐</button>
+                        <button class="glass-card text-white hover-scale breathe animation-delay-200" style="padding: 1rem 1.5rem; font-size: 1.5rem; border: none; cursor: pointer;">💬</button>
+                        <button class="glass-card text-white hover-scale breathe animation-delay-300" style="padding: 1rem 1.5rem; font-size: 1.5rem; border: none; cursor: pointer;">🐙</button>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2 mb-8">
+                    <h5 class="mb-4 font-bold" style="font-size: 1.125rem;">Framework</h5>
+                    <ul style="list-style: none; padding: 0; line-height: 2.5;">
+                        <li><a href="#" class="text-white hover-scale" style="opacity: 0.8; display: inline-block; transition: all 0.3s;">Components</a></li>
+                        <li><a href="#" class="text-white hover-scale" style="opacity: 0.8; display: inline-block; transition: all 0.3s;">Utilities</a></li>
+                        <li><a href="#" class="text-white hover-scale" style="opacity: 0.8; display: inline-block; transition: all 0.3s;">Animations</a></li>
+                        <li><a href="#" class="text-white hover-scale" style="opacity: 0.8; display: inline-block; transition: all 0.3s;">Effects</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-8">
+                    <h5 class="mb-4 font-bold" style="font-size: 1.125rem;">Resources</h5>
+                    <ul style="list-style: none; padding: 0; line-height: 2.5;">
+                        <li><a href="#" class="text-white hover-scale" style="opacity: 0.8; display: inline-block; transition: all 0.3s;">Documentation</a></li>
+                        <li><a href="#" class="text-white hover-scale" style="opacity: 0.8; display: inline-block; transition: all 0.3s;">Examples</a></li>
+                        <li><a href="#" class="text-white hover-scale" style="opacity: 0.8; display: inline-block; transition: all 0.3s;">GitHub</a></li>
+                        <li><a href="#" class="text-white hover-scale" style="opacity: 0.8; display: inline-block; transition: all 0.3s;">Community</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-2 mb-8">
+                    <h5 class="mb-4 font-bold" style="font-size: 1.125rem;">Learn</h5>
+                    <ul style="list-style: none; padding: 0; line-height: 2.5;">
+                        <li><a href="#" class="text-white hover-scale" style="opacity: 0.8; display: inline-block; transition: all 0.3s;">Getting Started</a></li>
+                        <li><a href="#" class="text-white hover-scale" style="opacity: 0.8; display: inline-block; transition: all 0.3s;">Tutorials</a></li>
+                        <li><a href="#" class="text-white hover-scale" style="opacity: 0.8; display: inline-block; transition: all 0.3s;">Blog</a></li>
+                        <li><a href="#" class="text-white hover-scale" style="opacity: 0.8; display: inline-block; transition: all 0.3s;">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center pt-8" style="border-top: 1px solid rgba(255,255,255,0.2);">
+                <p style="opacity: 0.8; font-size: 1.125rem;">
+                    © 2024 EcoRide CSS. Built with <span class="animate-pulse" style="color: #4facfe;">❤️</span> and modern web technologies.
+                </p>
+                <p style="opacity: 0.6; margin-top: 0.5rem;">Version 2.0.0 - MIT License - Zero Deprecation Warnings ✨</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
