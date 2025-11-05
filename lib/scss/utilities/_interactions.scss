@@ -1,0 +1,76 @@
+@use '../design-tokens/colors' as *;
+
+// Cursor
+.cursor-auto { cursor: auto; }
+.cursor-default { cursor: default; }
+.cursor-pointer { cursor: pointer; }
+.cursor-wait { cursor: wait; }
+.cursor-text { cursor: text; }
+.cursor-move { cursor: move; }
+.cursor-help { cursor: help; }
+.cursor-not-allowed { cursor: not-allowed; }
+.cursor-none { cursor: none; }
+.cursor-grab { cursor: grab; }
+.cursor-grabbing { cursor: grabbing; }
+
+// User Select
+.select-none { user-select: none; }
+.select-text { user-select: text; }
+.select-all { user-select: all; }
+.select-auto { user-select: auto; }
+
+// Pointer Events
+.pointer-events-none { pointer-events: none; }
+.pointer-events-auto { pointer-events: auto; }
+
+// Touch Action
+.touch-auto { touch-action: auto; }
+.touch-none { touch-action: none; }
+.touch-pan-x { touch-action: pan-x; }
+.touch-pan-y { touch-action: pan-y; }
+.touch-manipulation { touch-action: manipulation; }
+
+// Will Change (performance optimization)
+.will-change-auto { will-change: auto; }
+.will-change-scroll { will-change: scroll-position; }
+.will-change-contents { will-change: contents; }
+.will-change-transform { will-change: transform; }
+
+// Appearance
+.appearance-none {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+// Outline
+.outline-none { outline: 2px solid transparent; outline-offset: 2px; }
+.outline { outline: 2px solid $primary; outline-offset: 2px; }
+.outline-dashed { outline: 2px dashed $primary; outline-offset: 2px; }
+.outline-dotted { outline: 2px dotted $primary; outline-offset: 2px; }
+
+// Focus styles
+.focus\:outline-none:focus { outline: 2px solid transparent; outline-offset: 2px; }
+.focus\:ring:focus { box-shadow: 0 0 0 3px rgba($primary, 0.5); }
+.focus\:ring-offset:focus { box-shadow: 0 0 0 2px $white, 0 0 0 5px rgba($primary, 0.5); }
+
+// Smooth scroll
+.scroll-smooth { scroll-behavior: smooth; }
+.scroll-auto { scroll-behavior: auto; }
+
+// Snap scroll
+.snap-none { scroll-snap-type: none; }
+.snap-x { scroll-snap-type: x mandatory; }
+.snap-y { scroll-snap-type: y mandatory; }
+.snap-both { scroll-snap-type: both mandatory; }
+
+.snap-start { scroll-snap-align: start; }
+.snap-end { scroll-snap-align: end; }
+.snap-center { scroll-snap-align: center; }
+
+// Caret (text cursor)
+.caret-transparent { caret-color: transparent; }
+.caret-current { caret-color: currentColor; }
+.caret-primary { caret-color: $primary; }
+.caret-success { caret-color: $success; }
+.caret-danger { caret-color: $danger; }

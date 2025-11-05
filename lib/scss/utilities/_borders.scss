@@ -1,0 +1,83 @@
+@use 'sass:map';
+@use '../design-tokens/colors' as *;
+@use '../abstracts/variables' as vars;
+
+// Border Width
+.border-0 { border-width: 0; }
+.border { border-width: 1px; }
+.border-2 { border-width: 2px; }
+.border-4 { border-width: 4px; }
+.border-8 { border-width: 8px; }
+
+// Border Sides
+.border-t { border-top-width: 1px; }
+.border-r { border-right-width: 1px; }
+.border-b { border-bottom-width: 1px; }
+.border-l { border-left-width: 1px; }
+
+.border-t-0 { border-top-width: 0; }
+.border-r-0 { border-right-width: 0; }
+.border-b-0 { border-bottom-width: 0; }
+.border-l-0 { border-left-width: 0; }
+
+// Border Style
+.border-solid { border-style: solid; }
+.border-dashed { border-style: dashed; }
+.border-dotted { border-style: dotted; }
+.border-double { border-style: double; }
+.border-none { border-style: none; }
+
+// Border Radius
+@each $name, $value in vars.$border-radius {
+  .rounded-#{$name} { border-radius: $value; }
+}
+
+// Side-specific border radius
+.rounded-t-none { border-top-left-radius: 0; border-top-right-radius: 0; }
+.rounded-r-none { border-top-right-radius: 0; border-bottom-right-radius: 0; }
+.rounded-b-none { border-bottom-right-radius: 0; border-bottom-left-radius: 0; }
+.rounded-l-none { border-top-left-radius: 0; border-bottom-left-radius: 0; }
+
+.rounded-t { border-top-left-radius: map.get(vars.$border-radius, 'base'); border-top-right-radius: map.get(vars.$border-radius, 'base'); }
+.rounded-r { border-top-right-radius: map.get(vars.$border-radius, 'base'); border-bottom-right-radius: map.get(vars.$border-radius, 'base'); }
+.rounded-b { border-bottom-right-radius: map.get(vars.$border-radius, 'base'); border-bottom-left-radius: map.get(vars.$border-radius, 'base'); }
+.rounded-l { border-top-left-radius: map.get(vars.$border-radius, 'base'); border-bottom-left-radius: map.get(vars.$border-radius, 'base'); }
+
+// Corner-specific radius
+.rounded-tl { border-top-left-radius: map.get(vars.$border-radius, 'base'); }
+.rounded-tr { border-top-right-radius: map.get(vars.$border-radius, 'base'); }
+.rounded-br { border-bottom-right-radius: map.get(vars.$border-radius, 'base'); }
+.rounded-bl { border-bottom-left-radius: map.get(vars.$border-radius, 'base'); }
+
+.rounded-tl-none { border-top-left-radius: 0; }
+.rounded-tr-none { border-top-right-radius: 0; }
+.rounded-br-none { border-bottom-right-radius: 0; }
+.rounded-bl-none { border-bottom-left-radius: 0; }
+
+// Divide utilities (for lists/grids)
+.divide-y > * + * { border-top: 1px solid $border-color; }
+.divide-x > * + * { border-left: 1px solid $border-color; }
+
+.divide-y-0 > * + * { border-top-width: 0; }
+.divide-x-0 > * + * { border-left-width: 0; }
+
+.divide-y-2 > * + * { border-top-width: 2px; }
+.divide-x-2 > * + * { border-left-width: 2px; }
+
+// Ring (outline)
+.ring { box-shadow: 0 0 0 3px rgba($primary, 0.5); }
+.ring-0 { box-shadow: 0 0 0 0 rgba($primary, 0.5); }
+.ring-1 { box-shadow: 0 0 0 1px rgba($primary, 0.5); }
+.ring-2 { box-shadow: 0 0 0 2px rgba($primary, 0.5); }
+.ring-4 { box-shadow: 0 0 0 4px rgba($primary, 0.5); }
+
+.ring-primary { box-shadow: 0 0 0 3px rgba($primary, 0.5); }
+.ring-success { box-shadow: 0 0 0 3px rgba($success, 0.5); }
+.ring-danger { box-shadow: 0 0 0 3px rgba($danger, 0.5); }
+.ring-warning { box-shadow: 0 0 0 3px rgba($warning, 0.5); }
+
+// Ring offset
+.ring-offset-0 { box-shadow: 0 0 0 0 $white, 0 0 0 3px rgba($primary, 0.5); }
+.ring-offset-1 { box-shadow: 0 0 0 1px $white, 0 0 0 4px rgba($primary, 0.5); }
+.ring-offset-2 { box-shadow: 0 0 0 2px $white, 0 0 0 5px rgba($primary, 0.5); }
+.ring-offset-4 { box-shadow: 0 0 0 4px $white, 0 0 0 7px rgba($primary, 0.5); }

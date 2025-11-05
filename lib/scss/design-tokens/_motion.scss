@@ -1,0 +1,27 @@
+// Motion & Animation Tokens
+
+// Durations
+$duration-instant: 75ms;
+$duration-fast: 150ms;
+$duration-base: 250ms;
+$duration-slow: 350ms;
+$duration-slower: 500ms;
+$duration-leisurely: 750ms;
+
+// Easing curves
+$ease-linear: linear;
+$ease-in: cubic-bezier(0.4, 0, 1, 1);
+$ease-out: cubic-bezier(0, 0, 0.2, 1);
+$ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+$ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+$ease-elastic: cubic-bezier(0.68, -0.75, 0.265, 1.55);
+$ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+// Transition presets
+$transition-all: all $duration-base $ease-in-out;
+$transition-colors: color $duration-fast $ease-out, 
+                    background-color $duration-fast $ease-out,
+                    border-color $duration-fast $ease-out;
+$transition-transform: transform $duration-base $ease-out;
+$transition-opacity: opacity $duration-fast $ease-out;
+$transition-shadow: box-shadow $duration-base $ease-out;

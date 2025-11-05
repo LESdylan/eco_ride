@@ -11,8 +11,12 @@
 
 // 3. Layout
 @use 'layout/grid';
+@use 'layout/advanced-grid';
+@use 'layout/header';
+@use 'layout/footer';
 
 // 4. Components
+@use 'components/navbar';
 @use 'components/buttons';
 @use 'components/cards';
 @use 'components/badges';
@@ -30,9 +34,31 @@
 @use 'components/stats';
 @use 'components/features';
 @use 'components/tabs';
+@use 'components/component-card';
 
-// 5. Utilities
+// 5. Utilities (import all utility modules explicitly)
+@use 'utilities/index';
+@use 'utilities/layout';
+@use 'utilities/spacing';
+@use 'utilities/sizing';
+@use 'utilities/colors';
+@use 'utilities/typography';
+@use 'utilities/surfaces';
+@use 'utilities/borders';
+@use 'utilities/transforms';
+@use 'utilities/transitions';
+@use 'utilities/visibility';
+@use 'utilities/interactions';
 @use 'utilities/utilities';
+@use 'utilities/flex-utilities';
 @use 'utilities/animations';
 @use 'utilities/effects';
 @use 'utilities/motion';
+@use 'utilities/showcase';
+
+// 6. Themes
+@use 'themes/dark';
+@use 'themes/light';
+
+// 7. Design Tokens
+

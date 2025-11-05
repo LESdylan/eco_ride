@@ -1,0 +1,93 @@
+@use 'sass:map';
+@use '../design-tokens/surfaces' as *;
+
+// Box Shadows (Elevation)
+@each $level, $shadow in $elevation {
+  .shadow-#{$level} { box-shadow: $shadow; }
+}
+
+// Colored Shadows
+.shadow-primary { box-shadow: $shadow-primary; }
+.shadow-success { box-shadow: $shadow-success; }
+.shadow-danger { box-shadow: $shadow-danger; }
+.shadow-warning { box-shadow: $shadow-warning; }
+
+// Inner Shadows
+.shadow-inner-sm { box-shadow: $shadow-inner-sm; }
+.shadow-inner { box-shadow: $shadow-inner; }
+.shadow-inner-lg { box-shadow: $shadow-inner-lg; }
+
+// Blur
+@each $name, $value in $blur {
+  .blur-#{$name} { filter: blur($value); }
+}
+
+// Backdrop Blur (for glass effects)
+@each $name, $value in $backdrop-blur {
+  .backdrop-blur-#{$name} {
+    backdrop-filter: $value;
+    -webkit-backdrop-filter: $value;
+  }
+}
+
+// Glassmorphism Presets
+.glass-light {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-medium {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.glass-heavy {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-dark-light {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-dark-medium {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+// Brightness/Contrast
+.brightness-0 { filter: brightness(0); }
+.brightness-50 { filter: brightness(0.5); }
+.brightness-75 { filter: brightness(0.75); }
+.brightness-90 { filter: brightness(0.9); }
+.brightness-100 { filter: brightness(1); }
+.brightness-110 { filter: brightness(1.1); }
+.brightness-125 { filter: brightness(1.25); }
+.brightness-150 { filter: brightness(1.5); }
+
+.contrast-0 { filter: contrast(0); }
+.contrast-50 { filter: contrast(0.5); }
+.contrast-100 { filter: contrast(1); }
+.contrast-125 { filter: contrast(1.25); }
+.contrast-150 { filter: contrast(1.5); }
+
+// Grayscale/Sepia
+.grayscale { filter: grayscale(100%); }
+.grayscale-0 { filter: grayscale(0); }
+.sepia { filter: sepia(100%); }
+.sepia-0 { filter: sepia(0); }
+
+// Invert
+.invert { filter: invert(100%); }
+.invert-0 { filter: invert(0); }

@@ -1,0 +1,57 @@
+@use 'sass:map';
+@use '../design-tokens/spacing' as *;
+
+// Margin utilities
+@each $key, $value in $scale {
+  .m-#{$key} { margin: $value; }
+  .mt-#{$key} { margin-top: $value; }
+  .mr-#{$key} { margin-right: $value; }
+  .mb-#{$key} { margin-bottom: $value; }
+  .ml-#{$key} { margin-left: $value; }
+  .mx-#{$key} { margin-left: $value; margin-right: $value; }
+  .my-#{$key} { margin-top: $value; margin-bottom: $value; }
+}
+
+// Negative margins
+@each $key, $value in $scale {
+  .-m-#{$key} { margin: -$value; }
+  .-mt-#{$key} { margin-top: -$value; }
+  .-mr-#{$key} { margin-right: -$value; }
+  .-mb-#{$key} { margin-bottom: -$value; }
+  .-ml-#{$key} { margin-left: -$value; }
+  .-mx-#{$key} { margin-left: -$value; margin-right: -$value; }
+  .-my-#{$key} { margin-top: -$value; margin-bottom: -$value; }
+}
+
+// Padding utilities
+@each $key, $value in $scale {
+  .p-#{$key} { padding: $value; }
+  .pt-#{$key} { padding-top: $value; }
+  .pr-#{$key} { padding-right: $value; }
+  .pb-#{$key} { padding-bottom: $value; }
+  .pl-#{$key} { padding-left: $value; }
+  .px-#{$key} { padding-left: $value; padding-right: $value; }
+  .py-#{$key} { padding-top: $value; padding-bottom: $value; }
+}
+
+// Gap utilities (for flexbox/grid)
+@each $key, $value in $scale {
+  .gap-#{$key} { gap: $value; }
+  .gap-x-#{$key} { column-gap: $value; }
+  .gap-y-#{$key} { row-gap: $value; }
+}
+
+// Space between utilities
+@each $key, $value in $scale {
+  .space-x-#{$key} > * + * { margin-left: $value; }
+  .space-y-#{$key} > * + * { margin-top: $value; }
+}
+
+// Auto margins
+.m-auto { margin: auto; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.my-auto { margin-top: auto; margin-bottom: auto; }
+.ml-auto { margin-left: auto; }
+.mr-auto { margin-right: auto; }
+.mt-auto { margin-top: auto; }
+.mb-auto { margin-bottom: auto; }

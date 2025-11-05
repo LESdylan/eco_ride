@@ -1,0 +1,261 @@
+@use 'sass:math';
+@use 'sass:map';
+@use '../design-tokens/spacing' as *;
+@use '../design-tokens/colors' as *;
+@use '../abstracts/mixins' as *;
+
+// Auto-responsive grid (no media queries needed)
+.auto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--min-col-width, 280px), 1fr));
+  gap: var(--grid-gap, #{map.get($scale, 6)});
+  padding: var(--grid-padding, #{map.get($scale, 8)});
+  
+  &.tight {
+    gap: var(--grid-gap, #{map.get($scale, 3)});
+  }
+  
+  &.loose {
+    gap: var(--grid-gap, #{map.get($scale, 12)});
+  }
+}
+
+// Auto-fill grid (creates as many columns as fit)
+.auto-fill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--min-col-width, 250px), 1fr));
+  gap: var(--grid-gap, #{map.get($scale, 6)});
+  padding: var(--grid-padding, #{map.get($scale, 8)});
+}
+
+// Component card layout utilities
+.component-grid {
+  display: grid;
+  gap: map.get($scale, 6);
+  padding: map.get($scale, 8);
+  
+  // Small cards (4-5 per row on desktop)
+  &.compact {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+  
+  // Medium cards (3-4 per row on desktop)
+  &.standard {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  
+  // Large cards (2-3 per row on desktop)
+  &.spacious {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+  
+  // Extra large cards (1-2 per row)
+  &.expansive {
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  }
+}
+
+// Masonry-style grid
+.masonry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-auto-rows: 20px;
+  gap: map.get($scale, 4);
+  padding: map.get($scale, 8);
+  
+  .masonry-item {
+    &.span-2 { grid-row: span 2; }
+    &.span-3 { grid-row: span 3; }
+    &.span-4 { grid-row: span 4; }
+    &.span-5 { grid-row: span 5; }
+    &.span-6 { grid-row: span 6; }
+  }
+}
+
+// Fixed columns responsive grid
+@for $i from 1 through 6 {
+  .grid-cols-#{$i} {
+    display: grid;
+    grid-template-columns: repeat(#{$i}, 1fr);
+    gap: map.get($scale, 6);
+    
+    @media (max-width: 1200px) {
+      @if $i > 4 {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    
+    @media (max-width: 992px) {
+      @if $i > 3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      @if $i > 2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 576px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+// Gallery grid with equal height items
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: 1fr;
+  gap: map.get($scale, 6);
+  padding: map.get($scale, 8);
+  
+  > * {
+    min-height: 100%;
+  }
+}
+
+// Showcase grid with aspect ratio preservation
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: map.get($scale, 6);
+  padding: map.get($scale, 8);
+  
+  .showcase-item {
+    position: relative;
+    aspect-ratio: var(--aspect-ratio, 1.2);
+    overflow: hidden;
+    border-radius: 1rem;
+  }
+}
+
+// Flex-based component gallery
+.flex-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: map.get($scale, 6);
+  padding: map.get($scale, 8);
+  
+  > * {
+    flex: 1 1 calc(33.333% - #{map.get($scale, 6)});
+    min-width: 280px;
+    
+    @media (max-width: 992px) {
+      flex: 1 1 calc(50% - #{map.get($scale, 6)});
+    }
+    
+    @media (max-width: 576px) {
+      flex: 1 1 100%;
+    }
+  }
+}
+
+// Card grid utilities
+.card-grid {
+  display: grid;
+  gap: map.get($scale, 6);
+  padding: var(--container-padding, #{map.get($scale, 8)});
+  
+  &.auto {
+    grid-template-columns: repeat(auto-fit, minmax(var(--card-min-width, 300px), 1fr));
+  }
+  
+  &.equal-height > * {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+// CSS Grid areas for complex layouts
+.grid-layout {
+  display: grid;
+  gap: map.get($scale, 6);
+  
+  &.dashboard {
+    grid-template-areas:
+      "header header header"
+      "sidebar main main"
+      "sidebar main main";
+    grid-template-columns: 250px 1fr 1fr;
+    grid-template-rows: auto 1fr 1fr;
+    
+    @media (max-width: 992px) {
+      grid-template-areas:
+        "header"
+        "main"
+        "sidebar";
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  &.magazine {
+    grid-template-areas:
+      "feature feature feature"
+      "main main aside"
+      "main main aside";
+    grid-template-columns: 2fr 1fr 1fr;
+    
+    @media (max-width: 768px) {
+      grid-template-areas:
+        "feature"
+        "main"
+        "aside";
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.grid-area-header { grid-area: header; }
+.grid-area-sidebar { grid-area: sidebar; }
+.grid-area-main { grid-area: main; }
+.grid-area-aside { grid-area: aside; }
+.grid-area-feature { grid-area: feature; }
+
+// Gap utilities for grids
+.gap-0 { gap: 0; }
+.gap-1 { gap: map.get($scale, 1); }
+.gap-2 { gap: map.get($scale, 2); }
+.gap-3 { gap: map.get($scale, 3); }
+.gap-4 { gap: map.get($scale, 4); }
+.gap-6 { gap: map.get($scale, 6); }
+.gap-8 { gap: map.get($scale, 8); }
+.gap-12 { gap: map.get($scale, 12); }
+
+// Column/Row gap
+.column-gap-4 { column-gap: map.get($scale, 4); }
+.column-gap-6 { column-gap: map.get($scale, 6); }
+.row-gap-4 { row-gap: map.get($scale, 4); }
+.row-gap-6 { row-gap: map.get($scale, 6); }
+
+// Grid item utilities
+.col-span-2 { grid-column: span 2; }
+.col-span-3 { grid-column: span 3; }
+.col-span-4 { grid-column: span 4; }
+.col-span-full { grid-column: 1 / -1; }
+
+.row-span-2 { grid-row: span 2; }
+.row-span-3 { grid-row: span 3; }
+.row-span-4 { grid-row: span 4; }
+
+// Alignment utilities for grid
+.place-center {
+  place-items: center;
+}
+
+.place-start {
+  place-items: start;
+}
+
+.place-end {
+  place-items: end;
+}
+
+.justify-items-center {
+  justify-items: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
