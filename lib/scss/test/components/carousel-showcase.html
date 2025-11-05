@@ -1,0 +1,117 @@
+<section id="carousel" class="container py-20">
+    <div class="text-center mb-16 animate-fade-in-up">
+        <span class="badge gradient-purple text-white mb-4">Pure CSS Carousel</span>
+        <h2 style="font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; margin-bottom: 1rem;">
+            Interactive Product Slider
+        </h2>
+        <p class="text-muted" style="font-size: 1.25rem; max-width: 600px; margin: 0 auto;">
+            No JavaScript required - pure CSS magic with smooth transitions
+        </p>
+    </div>
+
+    <!-- Standard Carousel -->
+    <div class="card shadow-lg mb-12 overflow-hidden">
+        <div class="card-header gradient-primary text-white p-6">
+            <h3 class="mb-0 font-bold">Standard Slide Carousel</h3>
+        </div>
+        <div class="card-body p-0">
+            <div class="carousel">
+                <input type="radio" name="carousel1" id="slide1-1" class="carousel-nav" checked>
+                <input type="radio" name="carousel1" id="slide1-2" class="carousel-nav">
+                <input type="radio" name="carousel1" id="slide1-3" class="carousel-nav">
+                <input type="radio" name="carousel1" id="slide1-4" class="carousel-nav">
+                
+                <div class="carousel-container">
+                    <div class="carousel-slide gradient-purple" style="height: 400px; display: flex; align-items: center; justify-content: center;">
+                        <div class="text-white text-center p-8">
+                            <div style="font-size: 5rem; margin-bottom: 1rem;">👔</div>
+                            <h3 class="font-bold mb-3" style="font-size: 2rem;">Product 1</h3>
+                            <p style="font-size: 1.125rem; opacity: 0.9;">Premium Designer Shirt - $89</p>
+                            <button class="btn bg-white mt-4" style="color: #667eea; font-weight: 600;">View Details</button>
+                        </div>
+                    </div>
+                    <div class="carousel-slide gradient-pink" style="height: 400px; display: flex; align-items: center; justify-content: center;">
+                        <div class="text-white text-center p-8">
+                            <div style="font-size: 5rem; margin-bottom: 1rem;">👟</div>
+                            <h3 class="font-bold mb-3" style="font-size: 2rem;">Product 2</h3>
+                            <p style="font-size: 1.125rem; opacity: 0.9;">Sport Sneakers - $129</p>
+                            <button class="btn bg-white mt-4" style="color: #f5576c; font-weight: 600;">View Details</button>
+                        </div>
+                    </div>
+                    <div class="carousel-slide gradient-blue" style="height: 400px; display: flex; align-items: center; justify-content: center;">
+                        <div class="text-white text-center p-8">
+                            <div style="font-size: 5rem; margin-bottom: 1rem;">👓</div>
+                            <h3 class="font-bold mb-3" style="font-size: 2rem;">Product 3</h3>
+                            <p style="font-size: 1.125rem; opacity: 0.9;">Sunglasses - $59</p>
+                            <button class="btn bg-white mt-4" style="color: #4facfe; font-weight: 600;">View Details</button>
+                        </div>
+                    </div>
+                    <div class="carousel-slide gradient-orange" style="height: 400px; display: flex; align-items: center; justify-content: center;">
+                        <div class="text-white text-center p-8">
+                            <div style="font-size: 5rem; margin-bottom: 1rem;">⌚</div>
+                            <h3 class="font-bold mb-3" style="font-size: 2rem;">Product 4</h3>
+                            <p style="font-size: 1.125rem; opacity: 0.9;">Smart Watch - $299</p>
+                            <button class="btn bg-white mt-4" style="color: #fa709a; font-weight: 600;">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-controls">
+                    <label for="slide1-1" class="carousel-control prev"></label>
+                    <label for="slide1-2" class="carousel-control next"></label>
+                </div>
+                
+                <div class="carousel-indicators">
+                    <div class="carousel-indicator"><label for="slide1-1"></label></div>
+                    <div class="carousel-indicator"><label for="slide1-2"></label></div>
+                    <div class="carousel-indicator"><label for="slide1-3"></label></div>
+                    <div class="carousel-indicator"><label for="slide1-4"></label></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3D Carousel -->
+    <div class="card shadow-lg overflow-hidden">
+        <div class="card-header gradient-success text-white p-6">
+            <h3 class="mb-0 font-bold">3D Perspective Carousel</h3>
+        </div>
+        <div class="card-body p-0">
+            <div class="carousel carousel-3d">
+                <input type="radio" name="carousel2" id="slide2-1" class="carousel-nav" checked>
+                <input type="radio" name="carousel2" id="slide2-2" class="carousel-nav">
+                <input type="radio" name="carousel2" id="slide2-3" class="carousel-nav">
+                
+                <div class="carousel-container">
+                    <div class="carousel-slide gradient-fire" style="height: 400px; display: flex; align-items: center; justify-content: center;">
+                        <div class="text-white text-center p-8">
+                            <div style="font-size: 5rem; margin-bottom: 1rem;">🎒</div>
+                            <h3 class="font-bold mb-3" style="font-size: 2rem;">Travel Backpack</h3>
+                            <p style="font-size: 1.125rem; opacity: 0.9;">Durable & Stylish - $149</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide gradient-forest" style="height: 400px; display: flex; align-items: center; justify-content: center;">
+                        <div class="text-white text-center p-8">
+                            <div style="font-size: 5rem; margin-bottom: 1rem;">🎧</div>
+                            <h3 class="font-bold mb-3" style="font-size: 2rem;">Headphones</h3>
+                            <p style="font-size: 1.125rem; opacity: 0.9;">Noise Cancelling - $199</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide gradient-candy" style="height: 400px; display: flex; align-items: center; justify-content: center;">
+                        <div class="text-white text-center p-8">
+                            <div style="font-size: 5rem; margin-bottom: 1rem;">💼</div>
+                            <h3 class="font-bold mb-3" style="font-size: 2rem;">Laptop Bag</h3>
+                            <p style="font-size: 1.125rem; opacity: 0.9;">Professional - $89</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-indicators">
+                    <div class="carousel-indicator"><label for="slide2-1"></label></div>
+                    <div class="carousel-indicator"><label for="slide2-2"></label></div>
+                    <div class="carousel-indicator"><label for="slide2-3"></label></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

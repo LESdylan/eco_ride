@@ -27,16 +27,21 @@ endef
 # add path to dependency check script
 DEPS_SCRIPT := ./check_deps.sh
 
-# run dependency checks before Docker actions
+# run dependency checks before Docker actions (skip on error)
 check_deps:
-	@bash $(DEPS_SCRIPT)
+	@bash $(DEPS_SCRIPT) || true
 
-# make docker-related targets run the dependency check first
-up:
+# Or create a simpler docker-only check
+check_docker:
+	@command -v docker >/dev/null 2>&1 || { echo "Docker not found. Please install Docker."; exit 1; }
+	@command -v docker-compose >/dev/null 2>&1 || docker compose version >/dev/null 2>&1 || { echo "Docker Compose not found."; exit 1; }
+
+# Use simpler check for docker operations
+up: check_docker
 	$(call info,Starting Docker containers...)
-	@bash $(DEPS_SCRIPT) --start
+	@sudo docker compose up -d
 
-down: check_deps
+down: check_docker
 	$(call warn,Stopping and removing containers...)
 	@sudo docker compose down
 

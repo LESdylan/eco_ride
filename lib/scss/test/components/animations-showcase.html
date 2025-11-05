@@ -1,0 +1,132 @@
+<section class="container py-20">
+    <div class="text-center mb-12">
+        <span class="badge gradient-danger text-white mb-4">Component Gallery</span>
+        <h2 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 1rem;">Animation Effects</h2>
+        <p class="text-muted" style="font-size: 1.125rem;">Pick your favorite animation</p>
+    </div>
+
+    <div class="card shadow-lg overflow-hidden">
+        <div class="carousel">
+            <input type="radio" name="anim-carousel" id="anim-slide-1" class="carousel-nav" checked>
+            <input type="radio" name="anim-carousel" id="anim-slide-2" class="carousel-nav">
+            <input type="radio" name="anim-carousel" id="anim-slide-3" class="carousel-nav">
+            
+            <div class="carousel-container">
+                <!-- Slide 1: Hover Effects -->
+                <div class="carousel-slide bg-light" style="height: 500px; padding: 3rem;">
+                    <div class="text-center mb-6">
+                        <h3 class="font-bold" style="font-size: 2rem;">Hover Effects</h3>
+                        <p class="text-muted">Hover over the cards below</p>
+                    </div>
+                    <div class="row gap-6">
+                        <div class="col-12 col-md-4">
+                            <div class="card shadow hover-lift gradient-purple gradient-overlay" style="height: 220px; border: none;">
+                                <div class="d-flex flex-column align-center justify-center" style="height: 100%;">
+                                    <div class="text-white" style="font-size: 3rem; margin-bottom: 1rem;">🚀</div>
+                                    <h4 class="text-white font-bold">.hover-lift</h4>
+                                    <code class="text-white" style="opacity: 0.8; font-size: 0.75rem;">Lift effect</code>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <div class="card shadow hover-scale gradient-pink gradient-overlay" style="height: 220px; border: none;">
+                                <div class="d-flex flex-column align-center justify-center" style="height: 100%;">
+                                    <div class="text-white" style="font-size: 3rem; margin-bottom: 1rem;">📐</div>
+                                    <h4 class="text-white font-bold">.hover-scale</h4>
+                                    <code class="text-white" style="opacity: 0.8; font-size: 0.75rem;">Scale effect</code>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <div class="card shadow magnetic gradient-blue gradient-overlay" style="height: 220px; border: none;">
+                                <div class="d-flex flex-column align-center justify-center" style="height: 100%;">
+                                    <div class="text-white" style="font-size: 3rem; margin-bottom: 1rem;">🧲</div>
+                                    <h4 class="text-white font-bold">.magnetic</h4>
+                                    <code class="text-white" style="opacity: 0.8; font-size: 0.75rem;">Magnetic pull</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2: Continuous Animations -->
+                <div class="carousel-slide gradient-candy" style="height: 500px; padding: 3rem;">
+                    <div class="text-center text-white mb-6">
+                        <h3 class="font-bold" style="font-size: 2rem;">Continuous Animations</h3>
+                        <p style="opacity: 0.9;">Always active animations</p>
+                    </div>
+                    <div class="row gap-6 justify-center">
+                        <div class="col-6 col-md-3 text-center">
+                            <div class="breathe bg-white shadow-lg p-6 rounded-lg">
+                                <div style="font-size: 4rem;">💗</div>
+                                <p class="font-bold mt-3">.breathe</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 text-center">
+                            <div class="animate-pulse bg-white shadow-lg p-6 rounded-lg">
+                                <div style="font-size: 4rem;">💫</div>
+                                <p class="font-bold mt-3">.animate-pulse</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 text-center">
+                            <div class="tilt bg-white shadow-lg p-6 rounded-lg">
+                                <div style="font-size: 4rem;">🎯</div>
+                                <p class="font-bold mt-3">.tilt</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 text-center">
+                            <div class="animate-bounce bg-white shadow-lg p-6 rounded-lg">
+                                <div style="font-size: 4rem;">⚽</div>
+                                <p class="font-bold mt-3">.animate-bounce</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3: Entrance Animations -->
+                <div class="carousel-slide bg-light" style="height: 500px; padding: 3rem;">
+                    <div class="text-center mb-6">
+                        <h3 class="font-bold" style="font-size: 2rem;">Entrance Animations</h3>
+                        <p class="text-muted">Scroll-triggered or on-load animations</p>
+                    </div>
+                    <div class="row gap-4">
+                        <div class="col-12 col-md-6">
+                            <div class="card shadow animate-fade-in-up p-6">
+                                <div style="font-size: 3rem; text-align: center; margin-bottom: 1rem;">↗️</div>
+                                <h5 class="font-bold text-center">.animate-fade-in-up</h5>
+                                <p class="text-muted text-center" style="font-size: 0.875rem;">Fade in from bottom</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="card shadow animate-slide-in-left animation-delay-200 p-6">
+                                <div style="font-size: 3rem; text-align: center; margin-bottom: 1rem;">⬅️</div>
+                                <h5 class="font-bold text-center">.animate-slide-in-left</h5>
+                                <p class="text-muted text-center" style="font-size: 0.875rem;">Slide from left</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="card shadow animate-slide-in-right animation-delay-300 p-6">
+                                <div style="font-size: 3rem; text-align: center; margin-bottom: 1rem;">➡️</div>
+                                <h5 class="font-bold text-center">.animate-slide-in-right</h5>
+                                <p class="text-muted text-center" style="font-size: 0.875rem;">Slide from right</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="card shadow animate-scale-in animation-delay-500 p-6">
+                                <div style="font-size: 3rem; text-align: center; margin-bottom: 1rem;">🔍</div>
+                                <h5 class="font-bold text-center">.animate-scale-in</h5>
+                                <p class="text-muted text-center" style="font-size: 0.875rem;">Scale from center</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="carousel-indicators">
+                <div class="carousel-indicator"><label for="anim-slide-1"></label></div>
+                <div class="carousel-indicator"><label for="anim-slide-2"></label></div>
+                <div class="carousel-indicator"><label for="anim-slide-3"></label></div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,194 @@
+@use 'sass:map';
+@use '../design-tokens/colors' as *;
+@use '../design-tokens/spacing' as *;
+@use '../abstracts/variables' as *;
+
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: map.get($border-radius, 'lg');
+}
+
+.carousel-container {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  position: relative;
+  
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+// CSS-only navigation using radio buttons
+.carousel-nav {
+  display: none;
+  
+  &:nth-of-type(1):checked ~ .carousel-container {
+    transform: translateX(0%);
+  }
+  
+  &:nth-of-type(2):checked ~ .carousel-container {
+    transform: translateX(-100%);
+  }
+  
+  &:nth-of-type(3):checked ~ .carousel-container {
+    transform: translateX(-200%);
+  }
+  
+  &:nth-of-type(4):checked ~ .carousel-container {
+    transform: translateX(-300%);
+  }
+  
+  &:nth-of-type(5):checked ~ .carousel-container {
+    transform: translateX(-400%);
+  }
+}
+
+// Carousel indicators
+.carousel-indicators {
+  position: absolute;
+  bottom: map.get($scale, 4);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: map.get($scale, 2);
+  z-index: 2;
+}
+
+.carousel-indicator {
+  cursor: pointer;
+  
+  label {
+    display: block;
+    width: 12px;
+    height: 12px;
+    background: rgba($white, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: rgba($white, 0.8);
+      transform: scale(1.2);
+    }
+  }
+}
+
+// Active indicator styling
+@for $i from 1 through 5 {
+  .carousel-nav:nth-of-type(#{$i}):checked ~ .carousel-indicators .carousel-indicator:nth-child(#{$i}) label {
+    background: $white;
+    width: 32px;
+    border-radius: 6px;
+  }
+}
+
+// Arrow navigation
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 map.get($scale, 4);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.carousel-control {
+  pointer-events: all;
+  width: 48px;
+  height: 48px;
+  background: rgba($white, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  
+  &:hover {
+    background: $white;
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  &::before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-top: 3px solid $gray-800;
+    border-right: 3px solid $gray-800;
+  }
+  
+  &.prev::before {
+    transform: rotate(-135deg);
+    margin-left: 4px;
+  }
+  
+  &.next::before {
+    transform: rotate(45deg);
+    margin-right: 4px;
+  }
+}
+
+// Auto-slide animation (optional)
+.carousel-autoplay {
+  .carousel-container {
+    animation: carousel-slide 15s infinite;
+  }
+}
+
+@keyframes carousel-slide {
+  0%, 20% { transform: translateX(0%); }
+  25%, 45% { transform: translateX(-100%); }
+  50%, 70% { transform: translateX(-200%); }
+  75%, 95% { transform: translateX(-300%); }
+  100% { transform: translateX(0%); }
+}
+
+// 3D carousel variant
+.carousel-3d {
+  perspective: 1000px;
+  
+  .carousel-slide {
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    &:hover {
+      transform: translateZ(20px);
+    }
+  }
+}
+
+// Fade transition variant
+.carousel-fade {
+  .carousel-container {
+    display: block;
+  }
+  
+  .carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+  
+  @for $i from 1 through 5 {
+    .carousel-nav:nth-of-type(#{$i}):checked ~ .carousel-container .carousel-slide:nth-child(#{$i}) {
+      opacity: 1;
+      position: relative;
+    }
+  }
+}

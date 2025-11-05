@@ -1,28 +1,16 @@
 #!/bin/bash
 
-VENV_DIR=".venv"
-REQ_FILE="requirements.txt"
-
 set -e
 
 # parse args
 START_DOCKER=false
-VENV_SET=false
 while [ $# -gt 0 ]; do
     case "$1" in
         --start|-s)
             START_DOCKER=true
             shift
             ;;
-        -*)
-            # ignore other options
-            shift
-            ;;
         *)
-            if [ "$VENV_SET" = false ]; then
-                VENV_DIR="$1"
-                VENV_SET=true
-            fi
             shift
             ;;
     esac
@@ -128,8 +116,8 @@ ensure_command() {
 
 echo "[INFO] Checking system commands..."
 
-# Commands required by the Makefile / project
-REQUIRED_CMDS=(docker docker-compose make git python3)
+# Commands required by the Makefile / project (Docker only)
+REQUIRED_CMDS=(docker make git)
 
 for cmd in "${REQUIRED_CMDS[@]}"; do
     # special-case: if docker-compose missing but 'docker compose' exists (modern docker), treat as present
@@ -184,33 +172,7 @@ if command -v docker >/dev/null 2>&1; then
     fi
 fi
 
-# Virtualenv and python deps
-if [ ! -d "$VENV_DIR" ]; then
-    echo "[INFO] Virtual environment not found at $VENV_DIR. Creating one with python3 -m venv ..."
-    if ! command -v python3 >/dev/null 2>&1; then
-        echo "[ERROR] python3 not found; cannot create virtualenv."
-        exit 1
-    fi
-    python3 -m venv "$VENV_DIR"
-fi
-
-PIP="$VENV_DIR/bin/pip"
-PYTHON="$VENV_DIR/bin/python"
-
-if [ ! -x "$PIP" ]; then
-    echo "[INFO] Upgrading pip and installing virtualenv tooling inside $VENV_DIR..."
-    "$PYTHON" -m ensurepip --upgrade || true
-    "$PYTHON" -m pip install --upgrade pip setuptools wheel
-fi
-
-if [ -f "$REQ_FILE" ]; then
-    echo "[INFO] Installing dependencies from $REQ_FILE into $VENV_DIR..."
-    "$PIP" install -r "$REQ_FILE"
-else
-    echo "[WARN] $REQ_FILE not found; skipping pip install."
-fi
-
-echo "[OK] Dependency check complete."
+echo "[OK] Dependency check complete (Docker only)."
 
 # If requested, attempt to ensure docker daemon is running and bring up the compose stack.
 if [ "$START_DOCKER" = true ]; then

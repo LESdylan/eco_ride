@@ -1,0 +1,104 @@
+@use '../design-tokens/colors' as *;
+@use '../design-tokens/spacing' as *;
+@use 'sass:map';
+
+.stat-card {
+  background: $white;
+  border-radius: 1rem;
+  padding: map.get($scale, 6);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, $primary, $accent-purple);
+  }
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.stat-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  margin-bottom: map.get($scale, 4);
+  
+  &.primary {
+    background: linear-gradient(135deg, rgba($primary, 0.1), rgba($primary, 0.2));
+    color: $primary;
+  }
+  
+  &.success {
+    background: linear-gradient(135deg, rgba($success, 0.1), rgba($success, 0.2));
+    color: $success;
+  }
+  
+  &.warning {
+    background: linear-gradient(135deg, rgba($warning, 0.1), rgba($warning, 0.2));
+    color: $warning;
+  }
+  
+  &.danger {
+    background: linear-gradient(135deg, rgba($danger, 0.1), rgba($danger, 0.2));
+    color: $danger;
+  }
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: map.get($scale, 2);
+  
+  &.primary { color: $primary; }
+  &.success { color: $success; }
+  &.warning { color: $warning; }
+  &.danger { color: $danger; }
+}
+
+.stat-label {
+  color: $text-muted;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-top: map.get($scale, 2);
+  
+  &.up {
+    color: $success;
+    
+    &::before {
+      content: '↗';
+    }
+  }
+  
+  &.down {
+    color: $danger;
+    
+    &::before {
+      content: '↘';
+    }
+  }
+}

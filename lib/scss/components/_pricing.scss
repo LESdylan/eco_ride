@@ -1,0 +1,96 @@
+@use '../design-tokens/colors' as *;
+@use '../design-tokens/spacing' as *;
+@use 'sass:map';
+
+.pricing-card {
+  background: $white;
+  border-radius: 1rem;
+  padding: 2.5rem;
+  position: relative;
+  transition: all 0.3s ease;
+  border: 2px solid $gray-200;
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border-color: $primary;
+  }
+  
+  &.featured {
+    border-color: $primary;
+    transform: scale(1.05);
+    
+    &::before {
+      content: 'Popular';
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: $primary;
+      color: $white;
+      padding: 0.25rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+  }
+}
+
+.pricing-header {
+  text-align: center;
+  margin-bottom: map.get($scale, 6);
+}
+
+.pricing-icon {
+  font-size: 3rem;
+  margin-bottom: map.get($scale, 4);
+  display: inline-block;
+}
+
+.pricing-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: map.get($scale, 2);
+}
+
+.pricing-price {
+  font-size: 3rem;
+  font-weight: 900;
+  color: $primary;
+  margin-bottom: map.get($scale, 1);
+  
+  span {
+    font-size: 1rem;
+    color: $text-muted;
+    font-weight: 400;
+  }
+}
+
+.pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: map.get($scale, 6) 0;
+  
+  li {
+    padding: map.get($scale, 3) 0;
+    border-bottom: 1px solid $gray-100;
+    display: flex;
+    align-items: center;
+    gap: map.get($scale, 2);
+    
+    &::before {
+      content: '✓';
+      color: $success;
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+    
+    &.disabled {
+      opacity: 0.4;
+      
+      &::before {
+        content: '✕';
+        color: $text-muted;
+      }
+    }
+  }
+}

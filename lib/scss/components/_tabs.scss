@@ -1,0 +1,47 @@
+@use '../design-tokens/colors' as *;
+@use '../design-tokens/spacing' as *;
+@use 'sass:map';
+
+.tabs {
+  border-bottom: 2px solid $gray-200;
+  display: flex;
+  gap: map.get($scale, 2);
+  overflow-x: auto;
+  
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
+}
+
+.tab {
+  padding: map.get($scale, 3) map.get($scale, 6);
+  border: none;
+  background: none;
+  color: $text-secondary;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+  
+  &:hover {
+    color: $primary;
+    background: rgba($primary, 0.05);
+  }
+  
+  &.active {
+    color: $primary;
+    border-bottom-color: $primary;
+  }
+}
+
+.tab-content {
+  padding: map.get($scale, 6) 0;
+  display: none;
+  animation: fadeIn 0.3s ease;
+  
+  &.active {
+    display: block;
+  }
+}

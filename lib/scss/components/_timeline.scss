@@ -1,0 +1,107 @@
+@use '../design-tokens/colors' as *;
+@use '../design-tokens/spacing' as *;
+@use 'sass:map';
+
+.timeline {
+  position: relative;
+  padding: map.get($scale, 8) 0;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, $primary, $accent-purple);
+    transform: translateX(-50%);
+  }
+  
+  @media (max-width: 768px) {
+    &::before {
+      left: 30px;
+    }
+  }
+}
+
+.timeline-item {
+  display: flex;
+  margin-bottom: map.get($scale, 12);
+  position: relative;
+  
+  &:nth-child(even) {
+    flex-direction: row-reverse;
+    
+    .timeline-content {
+      text-align: right;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    flex-direction: row !important;
+    
+    .timeline-content {
+      text-align: left !important;
+    }
+  }
+}
+
+.timeline-marker {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: $white;
+  border: 4px solid $primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  
+  @media (max-width: 768px) {
+    left: 30px;
+  }
+}
+
+.timeline-content {
+  flex: 1;
+  padding: 0 map.get($scale, 8);
+  max-width: 45%;
+  
+  @media (max-width: 768px) {
+    max-width: none;
+    padding-left: map.get($scale, 16);
+  }
+}
+
+.timeline-card {
+  background: $white;
+  border-radius: 1rem;
+  padding: map.get($scale, 6);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transform: scale(1.02);
+  }
+}
+
+.timeline-date {
+  color: $primary;
+  font-weight: 700;
+  margin-bottom: map.get($scale, 2);
+}
+
+.timeline-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: map.get($scale, 2);
+}
+
+.timeline-description {
+  color: $text-secondary;
+  line-height: 1.7;
+}

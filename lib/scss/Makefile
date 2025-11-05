@@ -98,3 +98,12 @@ help:
 	@echo "  SASS          - Sass command to use (e.g., 'sass' or 'npx sass')"
 
 .PHONY: all build minify watch clean re help check print-paths require-dart
+
+serve:
+	$(call info,Starting local web server on http://localhost:8080)
+	@cd test && python3 -m http.server 8080
+
+open-demo: serve
+	@sleep 2 && xdg-open http://localhost:8080/index.html 2>/dev/null || open http://localhost:8080/index.html 2>/dev/null || echo "Please open http://localhost:8080/index.html in your browser"
+
+.PHONY: serve open-demo

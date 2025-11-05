@@ -23,6 +23,13 @@
 @use 'components/glassmorphism';
 @use 'components/alerts';
 @use 'components/progress';
+@use 'components/carousel';
+@use 'components/pricing';
+@use 'components/testimonials';
+@use 'components/timeline';
+@use 'components/stats';
+@use 'components/features';
+@use 'components/tabs';
 
 // 5. Utilities
 @use 'utilities/utilities';

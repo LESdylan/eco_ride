@@ -1,0 +1,73 @@
+@use '../design-tokens/colors' as *;
+@use '../design-tokens/spacing' as *;
+@use 'sass:map';
+
+.feature-card {
+  text-align: center;
+  padding: map.get($scale, 8);
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+  background: $white;
+  
+  &:hover {
+    transform: translateY(-8px);
+    
+    .feature-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+  }
+}
+
+.feature-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto map.get($scale, 6);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  transition: transform 0.3s ease;
+  
+  &.gradient-primary {
+    background: linear-gradient(135deg, $primary, $accent-purple);
+    color: $white;
+  }
+  
+  &.gradient-success {
+    background: linear-gradient(135deg, $success, $accent-teal);
+    color: $white;
+  }
+  
+  &.gradient-warning {
+    background: linear-gradient(135deg, $warning, $accent-orange);
+    color: $white;
+  }
+  
+  &.gradient-danger {
+    background: linear-gradient(135deg, $danger, $accent-pink);
+    color: $white;
+  }
+}
+
+.feature-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: map.get($scale, 3);
+}
+
+.feature-description {
+  color: $text-secondary;
+  line-height: 1.7;
+}
+
+// Icon grid layout
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: map.get($scale, 6);
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
